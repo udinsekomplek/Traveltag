@@ -27,4 +27,21 @@
     <string name="string_unable_to_pick_image">Unable to Pickup Image</string>
     <string name="string_unable_to_load_image">Unable to Load Image</string>
     <string name="string_reselect">Click on Image to Reselect</string>
+
+
+    <string name="vMonthprompt">Choose a Month</string>
+
+    <string-array name="vMonthArray">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>November</item>
+        <item>Desember</item>
+    </string-array>
 </resources>

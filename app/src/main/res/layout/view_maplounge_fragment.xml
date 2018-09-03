@@ -46,14 +46,36 @@ android:layout_height="match_parent">
 
 
 </RelativeLayout>
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/relLayout1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:scaleType="centerCrop"
-        android:id="@+id/ic_gps"
-        android:src="@drawable/ic_gps_fixed_black_24dp"/>
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:elevation="10dp"
+        android:background="#fff"
+        android:layout_below="@+id/relLayout1"
+        android:id="@+id/relLayout2">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="290dp"
+            android:layout_height="match_parent"
+            android:entries="@array/vMonthArray"
+            android:prompt="@string/vMonthprompt"
+            />
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:id="@+id/ic_gps"
+         
+            android:src="@drawable/ic_search_black_24dp"/>
+
+    </RelativeLayout>
+
 </RelativeLayout>
