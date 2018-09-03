@@ -22,6 +22,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,7 +63,7 @@ public class FragmentMapLounge extends Fragment implements OnMapReadyCallback,Go
     //widgets
     private AutoCompleteTextView mSearchText;
     private ImageView mGps;
-
+    Spinner sMonth;
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private GoogleMap mMap;
@@ -80,10 +81,16 @@ public class FragmentMapLounge extends Fragment implements OnMapReadyCallback,Go
         View view = inflater.inflate(R.layout.view_maplounge_fragment, null, false);
         mSearchText = (AutoCompleteTextView) view.findViewById(R.id.input_search);
         mGps = (ImageView) view.findViewById(R.id.ic_gps);
+
+
         getLocationPermission();
 //        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
 //                .findFragmentById(R.id.map);
 //        mapFragment.getMapAsync(this);
+
+
+         sMonth = (Spinner) view.findViewById(R.id.spinner);
+
 
         return view;
     }
@@ -146,13 +153,13 @@ public class FragmentMapLounge extends Fragment implements OnMapReadyCallback,Go
             }
         });
 
-//        mGps.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.d(TAG, "onClick: clicked gps icon");
-//                getDeviceLocation();
-//            }
-//        });
+        mGps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mSearchText.getText();
+                sMonth.getSelectedItem().toString();
+            }
+        });
 
         hideSoftKeyboard();
     }
