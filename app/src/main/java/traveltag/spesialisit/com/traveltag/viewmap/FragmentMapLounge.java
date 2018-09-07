@@ -2,6 +2,7 @@ package traveltag.spesialisit.com.traveltag.viewmap;
 
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -158,6 +159,8 @@ public class FragmentMapLounge extends Fragment implements OnMapReadyCallback,Go
             public void onClick(View view) {
                 mSearchText.getText();
                 sMonth.getSelectedItem().toString();
+                Intent intent = new Intent(getActivity(), ActivityMapLoungeListTravel.class);
+                startActivity(intent);
             }
         });
 

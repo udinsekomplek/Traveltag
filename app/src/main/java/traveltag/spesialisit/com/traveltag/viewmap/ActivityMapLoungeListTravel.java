@@ -33,7 +33,7 @@ public class ActivityMapLoungeListTravel extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.acitivty_login);
+        setContentView(R.layout.view_localtour_fragment);
         pd = new ProgressDialog(ActivityMapLoungeListTravel.this);
         mRecycler = (RecyclerView) findViewById(R.id.recyclerTemp);
         mManager = new LinearLayoutManager(ActivityMapLoungeListTravel.this,LinearLayoutManager.VERTICAL, false);

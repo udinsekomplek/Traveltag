@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="horizontal"
+    android:paddingTop="3dp"
+    android:id="@+id/container" android:background="#d1d1caca">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imgFlag"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:background="@mipmap/indo"
+                />
+
+            <TextView
+                android:id="@+id/txUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imgFlag"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:text="New York"
+                android:textSize="21dp"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:typeface="sans"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingTop="7dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/txWaktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="( 1 - 12 August"
+                android:textSize="18dp"
+                android:textColor="#fff"
+                android:typeface="normal"/>
+            <TextView
+                android:id="@+id/txHari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:layout_toRightOf="@id/txWaktu"
+                android:text=" 5 Days )"
+                android:textSize="18dp"
+                android:textColor="#fff"
+                android:typeface="normal"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp">
+            <ImageView
+                android:id="@+id/txHadri"
+
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+
+                android:background="@drawable/ic_place_black_24dp"
+                />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
