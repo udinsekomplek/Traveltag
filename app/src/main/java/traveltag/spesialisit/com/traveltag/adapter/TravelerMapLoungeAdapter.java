@@ -4,7 +4,8 @@ package traveltag.spesialisit.com.traveltag.adapter;
 import android.content.Context;
         import android.content.Intent;
         import android.support.v7.widget.RecyclerView;
-        import android.view.LayoutInflater;
+import android.util.Log;
+import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.TextView;
@@ -16,6 +17,9 @@ import android.content.Context;
 
         import traveltag.spesialisit.com.traveltag.R;
         import traveltag.spesialisit.com.traveltag.model.mapLounge.Result;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Resulthobi;
+
+import static android.content.ContentValues.TAG;
 
 
 public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLoungeAdapter.HolderData> {
@@ -44,7 +48,13 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
         holder.tuser.setText(dm.getUsername());
         holder.bio.setText(dm.getBio());
         holder.ngr.setText(dm.getNational());
+        StringBuilder sb = new StringBuilder();
+        for (Resulthobi s : dm.getResulthobi())
+        {
+            sb.append(" Interest : "+s.getHobi().toString()+", ");
+        }
 
+        holder.txHobi.setText(sb);
         Picasso.with(ctx).load("http://107.189.5.17/demo/traveltag/profilepicture/"+dm.getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(holder.imageView);
 
         holder.dm = dm;
@@ -57,7 +67,7 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
 
 
     class HolderData extends  RecyclerView.ViewHolder{
-        TextView tuser, bio, ngr;
+        TextView tuser, bio, ngr,txHobi;
         Result dm;
         public  de.hdodenhof.circleimageview.CircleImageView imageView;
         public HolderData (View v)
@@ -66,6 +76,7 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
 
             bio  = (TextView) v.findViewById(R.id.txBio);
             ngr = (TextView) v.findViewById(R.id.txNegara);
+            txHobi = (TextView) v.findViewById(R.id.txHobi);
             tuser = (TextView) v.findViewById(R.id.txUser);
             imageView = (de.hdodenhof.circleimageview.CircleImageView) v.findViewById(R.id.profile_image);
             v.setOnClickListener(new View.OnClickListener() {

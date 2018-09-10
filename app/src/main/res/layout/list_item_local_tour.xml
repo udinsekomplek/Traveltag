@@ -81,6 +81,7 @@
 
                     </LinearLayout>
                     <TextView
+                        android:id="@+id/txTravelSumary"
                         android:background="#5caba3a3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -116,7 +117,7 @@
                     android:background="#5caba3a3"
                         >
                     <TextView
-                        android:id="@+id/txBssiko"
+                        android:id="@+id/txHobi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
