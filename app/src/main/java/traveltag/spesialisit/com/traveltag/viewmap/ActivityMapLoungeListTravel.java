@@ -17,17 +17,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import traveltag.spesialisit.com.traveltag.R;
-import traveltag.spesialisit.com.traveltag.adapter.LocalTourAdapter;
+import traveltag.spesialisit.com.traveltag.adapter.TravelerMapLoungeAdapter;
 import traveltag.spesialisit.com.traveltag.api.RequestRegister;
 import traveltag.spesialisit.com.traveltag.api.Retroserver;
-import traveltag.spesialisit.com.traveltag.model.LocalTourData;
-import traveltag.spesialisit.com.traveltag.model.LocalTourResponse;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Result;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelerMapLounge;
 
 public class ActivityMapLoungeListTravel extends AppCompatActivity {
     private RecyclerView mRecycler;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
-    private List<LocalTourData> mItems = new ArrayList<>();
+    private List<Result> mItems = new ArrayList<>();
     ProgressDialog pd;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,22 +44,22 @@ public class ActivityMapLoungeListTravel extends AppCompatActivity {
         pd.show();
 
         RequestRegister api = Retroserver.getClient().create(RequestRegister.class);
-        Call<LocalTourResponse> getdata = api.getUserLocal();
-        getdata.enqueue(new Callback<LocalTourResponse>() {
+        Call<ResultTravelerMapLounge> getdata = api.getUserTraveler();
+        getdata.enqueue(new Callback<ResultTravelerMapLounge>() {
             @Override
-            public void onResponse(Call<LocalTourResponse> call, Response<LocalTourResponse> response) {
+            public void onResponse(Call<ResultTravelerMapLounge> call, Response<ResultTravelerMapLounge> response) {
                 pd.hide();
-                Log.d("RETRO", "RESPONSE : " + response.body().getKode());
+               // Log.d("RETRO", "RESPONSE : " + response.body().getKode());
                 mItems = response.body().getResult();
 
-                mAdapter = new LocalTourAdapter(ActivityMapLoungeListTravel.this,mItems);
+                mAdapter = new TravelerMapLoungeAdapter(ActivityMapLoungeListTravel.this,mItems);
                 mRecycler.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
 
             }
 
             @Override
-            public void onFailure(Call<LocalTourResponse> call, Throwable t) {
+            public void onFailure(Call<ResultTravelerMapLounge> call, Throwable t) {
                 pd.hide();
                 Log.d("RETRO", "FAILED : respon gagal");
 

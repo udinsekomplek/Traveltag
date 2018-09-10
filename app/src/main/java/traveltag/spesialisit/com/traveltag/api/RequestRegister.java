@@ -8,7 +8,7 @@ package traveltag.spesialisit.com.traveltag.api;
         import retrofit2.http.Multipart;
         import retrofit2.http.Part;
         import traveltag.spesialisit.com.traveltag.model.ImageResult;
-        import traveltag.spesialisit.com.traveltag.model.LocalTourData;
+        import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelerMapLounge;
         import traveltag.spesialisit.com.traveltag.model.LocalTourResponse;
         import traveltag.spesialisit.com.traveltag.model.ResponsModelRegister;
 
@@ -56,4 +56,7 @@ public interface RequestRegister {
 
     @GET("server.php?operasi=op_list_user")
     Call<LocalTourResponse> getUserLocal();
+
+    @GET("server.php?operasi=op_list_userr")
+    Call<ResultTravelerMapLounge> getUserTraveler();
 }
