@@ -99,14 +99,14 @@
 
 
                         <TextView
-                            android:id="@+id/txBiko"
+                            android:id="@+id/txTravelSumaryDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:text="Detail"
                             android:textSize="15dp"
-                            android:textColor="#fff"
+                            android:textColor="#8ef105"
                             android:typeface="sans"/>
 
                     </LinearLayout>
@@ -134,14 +134,14 @@
 
 
                     <TextView
-                        android:id="@+id/txBisii"
+                        android:id="@+id/txHobiDetail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:layout_marginRight="5dp"
                         android:text="Detail"
                         android:textSize="15dp"
-                        android:textColor="#fff"
+                        android:textColor="#8ef105"
                         android:typeface="sans"/>
 
                 </LinearLayout>

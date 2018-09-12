@@ -29,7 +29,7 @@
                 />
 
             <TextView
-                android:id="@+id/txUser"
+                android:id="@+id/txNegara"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/imgFlag"
@@ -59,16 +59,7 @@
                 android:textSize="18dp"
                 android:textColor="#fff"
                 android:typeface="normal"/>
-            <TextView
-                android:id="@+id/txHari"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="40dp"
-                android:layout_toRightOf="@id/txWaktu"
-                android:text=" 5 Days )"
-                android:textSize="18dp"
-                android:textColor="#fff"
-                android:typeface="normal"/>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

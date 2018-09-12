@@ -20,11 +20,11 @@
             android:paddingLeft="15dp"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/txUser"
+                android:id="@+id/txBulan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Udin Udin"
+                android:text="Bulan"
                 android:textSize="17dp"
                 android:gravity="center"
                 android:textColor="#fff"

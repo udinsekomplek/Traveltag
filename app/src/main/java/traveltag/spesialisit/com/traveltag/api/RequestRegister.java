@@ -8,6 +8,8 @@ package traveltag.spesialisit.com.traveltag.api;
         import retrofit2.http.Multipart;
         import retrofit2.http.Part;
         import traveltag.spesialisit.com.traveltag.model.ImageResult;
+        import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultToDo;
+        import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelPlan;
         import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelerMapLounge;
         import traveltag.spesialisit.com.traveltag.model.LocalTourResponse;
         import traveltag.spesialisit.com.traveltag.model.ResponsModelRegister;
@@ -59,4 +61,16 @@ public interface RequestRegister {
 
     @GET("server.php?operasi=op_list_userr")
     Call<ResultTravelerMapLounge> getUserTraveler();
+
+    @FormUrlEncoded
+    @POST("server.php?operasi=op1")
+    Call<List<ResultTravelPlan>> rTravelPlan(@Field("iduser") String iduser);
+//cal to do
+    @FormUrlEncoded
+    @POST("server.php?operasi=op2")
+    Call<List<ResultToDo>> rToDo(@Field("idtplan") String idtplan);
+    //call nonth list
+    @FormUrlEncoded
+    @POST("server.php?operasi=op3")
+    Call<List<ResultTravelPlan>> rMonthList(@Field("idplan") String idplan, @Field("bulan") String bulan);
 }

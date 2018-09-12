@@ -13,11 +13,18 @@ import android.view.LayoutInflater;
 
         import com.squareup.picasso.Picasso;
 
-        import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
         import traveltag.spesialisit.com.traveltag.R;
         import traveltag.spesialisit.com.traveltag.model.mapLounge.Result;
 import traveltag.spesialisit.com.traveltag.model.mapLounge.Resulthobi;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Resultplan;
+import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeListHobi;
+import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeListTravel;
+import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeTravelPlan;
 
 import static android.content.ContentValues.TAG;
 
@@ -42,9 +49,9 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
     }
 
     @Override
-    public void onBindViewHolder(HolderData holder, int position) {
+    public void onBindViewHolder(final HolderData holder, int position) {
         final RecyclerView.ViewHolder vh = null;
-        Result dm = mList.get(position);
+        final Result dm = mList.get(position);
         holder.tuser.setText(dm.getUsername());
         holder.bio.setText(dm.getBio());
         holder.ngr.setText(dm.getNational());
@@ -55,8 +62,57 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
         }
 
         holder.txHobi.setText(sb);
+        StringBuilder sbt = new StringBuilder();
+        for (Resultplan st : dm.getResultplan())
+        {
+            String dt= st.getTglBerangkat().toString();
+            String brgkt= st.getTglSelesai().toString();
+            Date dtng=null,brg = null;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            try {
+                dtng = dateFormat.parse(dt);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            try {
+                 brg = dateFormat.parse(brgkt);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
+            long diff =  brg.getTime() - dtng.getTime();
+            int numOfDays = (int) (diff / (1000 * 60 * 60 * 24));
+            sbt.append(" "+ st.getNegara().toString()+", "+ brg.getDay()+"-"+dtng.getDay()+" "+ st.getBulan().toString());
+
+//            Log.d(TAG, "tottgl: "+dt + "-" +brgkt+" = "+numOfDays);
+        }
+
+        holder.txTravelSumary.setText(sbt
+        //        +", "+dm.getResultplan().get(0).getBulan().toString()+" "+dm.getResultplan().get(0).getTglBerangkat().toString()
+        );
+
         Picasso.with(ctx).load("http://107.189.5.17/demo/traveltag/profilepicture/"+dm.getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(holder.imageView);
 
+        holder.txTravelSumaryDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ctx.getApplicationContext(), ActivityMapLoungeTravelPlan.class);
+                i.putExtra("iduser", dm.getId().toString());
+                //i.putExtra("st", "Lunas");
+                ctx.startActivity(i);
+
+            }
+        });
+        holder.txHobiDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ctx.getApplicationContext(), ActivityMapLoungeListHobi.class);
+                i.putExtra("iduser", dm.getId().toString());
+                //i.putExtra("st", "Lunas");
+                ctx.startActivity(i);
+            }
+        });
         holder.dm = dm;
     }
 
@@ -67,7 +123,7 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
 
 
     class HolderData extends  RecyclerView.ViewHolder{
-        TextView tuser, bio, ngr,txHobi;
+        TextView tuser, bio, ngr,txHobi,txTravelSumary,txTravelSumaryDetail,txHobiDetail;
         Result dm;
         public  de.hdodenhof.circleimageview.CircleImageView imageView;
         public HolderData (View v)
@@ -78,6 +134,9 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
             ngr = (TextView) v.findViewById(R.id.txNegara);
             txHobi = (TextView) v.findViewById(R.id.txHobi);
             tuser = (TextView) v.findViewById(R.id.txUser);
+            txTravelSumary = (TextView) v.findViewById(R.id.txTravelSumary);
+            txTravelSumaryDetail = (TextView) v.findViewById(R.id.txTravelSumaryDetail);
+            txHobiDetail = (TextView) v.findViewById(R.id.txHobiDetail);
             imageView = (de.hdodenhof.circleimageview.CircleImageView) v.findViewById(R.id.profile_image);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -42,6 +42,9 @@ public class Result {
     @SerializedName("resulthobi")
     @Expose
     private List<Resulthobi> resulthobi = null;
+    @SerializedName("resultplan")
+    @Expose
+    private List<Resultplan> resultplan = null;
 
     public String getId() {
         return id;
@@ -137,6 +140,14 @@ public class Result {
 
     public void setResulthobi(List<Resulthobi> resulthobi) {
         this.resulthobi = resulthobi;
+    }
+
+    public List<Resultplan> getResultplan() {
+        return resultplan;
+    }
+
+    public void setResultplan(List<Resultplan> resultplan) {
+        this.resultplan = resultplan;
     }
 
 }
