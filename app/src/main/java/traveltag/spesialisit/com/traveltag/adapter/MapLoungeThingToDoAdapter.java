@@ -15,17 +15,16 @@ import java.util.Date;
 import java.util.List;
 
 import traveltag.spesialisit.com.traveltag.R;
-import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultToDo;
-import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeThingToDo;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Result2;
 
 
 public class MapLoungeThingToDoAdapter extends RecyclerView.Adapter<MapLoungeThingToDoAdapter.HolderData> {
 
-    private List<ResultToDo> mList ;
+    private List<Result2> mList ;
     private Context ctx;
 
 
-    public MapLoungeThingToDoAdapter(Context ctx, List<ResultToDo> mList)
+    public MapLoungeThingToDoAdapter(Context ctx, List<Result2> mList)
     {
         this.ctx = ctx;
         this.mList = mList;
@@ -42,7 +41,7 @@ public class MapLoungeThingToDoAdapter extends RecyclerView.Adapter<MapLoungeThi
     @Override
     public void onBindViewHolder(final HolderData holder, int position) {
         final RecyclerView.ViewHolder vh = null;
-        final ResultToDo dm = mList.get(position);
+        final Result2 dm = mList.get(position);
         holder.txKet.setText("( "+dm.getKegiatan()+" )");
 
 
@@ -64,7 +63,7 @@ public class MapLoungeThingToDoAdapter extends RecyclerView.Adapter<MapLoungeThi
 
     class HolderData extends  RecyclerView.ViewHolder{
         TextView txKet, txJudul;
-        ResultToDo dm;
+        Result2 dm;
         public HolderData (View v)
         {
             super(v);

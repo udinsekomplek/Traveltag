@@ -17,16 +17,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import traveltag.spesialisit.com.traveltag.R;
 import traveltag.spesialisit.com.traveltag.adapter.TravelerMapLoungeAdapter;
+import traveltag.spesialisit.com.traveltag.adapter.TravelerMapLoungeHobiAdapter;
 import traveltag.spesialisit.com.traveltag.api.RequestRegister;
 import traveltag.spesialisit.com.traveltag.api.Retroserver;
 import traveltag.spesialisit.com.traveltag.model.mapLounge.Result;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Result4;
 import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelerMapLounge;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Resulthobi2;
 
 public class ActivityMapLoungeListHobi extends AppCompatActivity {
     private RecyclerView mRecycler;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
-    private List<Result> mItems = new ArrayList<>();
+    private List<Result4> mItems = new ArrayList<>();
     ProgressDialog pd;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,24 +44,25 @@ public class ActivityMapLoungeListHobi extends AppCompatActivity {
         pd.setMessage("Loading ...");
         pd.setCancelable(false);
         pd.show();
+        String iduser=getIntent().getStringExtra("iduser").toString();
 
         RequestRegister api = Retroserver.getClient().create(RequestRegister.class);
-        Call<ResultTravelerMapLounge> getdata = api.getUserTraveler();
-        getdata.enqueue(new Callback<ResultTravelerMapLounge>() {
+        Call<Resulthobi2> getdata = api.rHobi(iduser);
+        getdata.enqueue(new Callback<Resulthobi2>() {
             @Override
-            public void onResponse(Call<ResultTravelerMapLounge> call, Response<ResultTravelerMapLounge> response) {
+            public void onResponse(Call<Resulthobi2> call, Response<Resulthobi2> response) {
                 pd.hide();
                // Log.d("RETRO", "RESPONSE : " + response.body().getKode());
-                mItems = response.body().getResult();
+                mItems = response.body().getResult4();
 
-                mAdapter = new TravelerMapLoungeAdapter(ActivityMapLoungeListHobi.this,mItems);
+                mAdapter = new TravelerMapLoungeHobiAdapter(ActivityMapLoungeListHobi.this,mItems);
                 mRecycler.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
 
             }
 
             @Override
-            public void onFailure(Call<ResultTravelerMapLounge> call, Throwable t) {
+            public void onFailure(Call<Resulthobi2> call, Throwable t) {
                 pd.hide();
                 Log.d("RETRO", "FAILED : respon gagal");
 

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Window;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,21 +21,27 @@ import traveltag.spesialisit.com.traveltag.R;
 import traveltag.spesialisit.com.traveltag.adapter.MapLoungeThingToDoAdapter;
 import traveltag.spesialisit.com.traveltag.api.RequestRegister;
 import traveltag.spesialisit.com.traveltag.api.Retroserver;
-import traveltag.spesialisit.com.traveltag.model.mapLounge.Result;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Result2;
 import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultToDo;
-import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelerMapLounge;
 
 public class ActivityMapLoungeThingToDo extends AppCompatActivity {
     private RecyclerView mRecycler;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mManager;
-    private List<Result> mItems = new ArrayList<>();
+    private List<Result2> mItems = new ArrayList<>();
     ProgressDialog pd;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+        setContentView(R.layout.list_map_lounge_travel_plan);
+        TextView txJudul = (TextView) findViewById(R.id.txJudul);
+        String inegara=getIntent().getStringExtra("negara").toString();
 
-        setContentView(R.layout.view_localtour_fragment);
+        txJudul.setText(" "+inegara+" - Things ToDo");
+
+
         pd = new ProgressDialog(ActivityMapLoungeThingToDo.this);
         mRecycler = (RecyclerView) findViewById(R.id.recyclerTemp);
         mManager = new LinearLayoutManager(ActivityMapLoungeThingToDo.this,LinearLayoutManager.VERTICAL, false);
@@ -45,22 +53,22 @@ public class ActivityMapLoungeThingToDo extends AppCompatActivity {
         String idplan=getIntent().getStringExtra("idplan").toString();
 
         RequestRegister api = Retroserver.getClient().create(RequestRegister.class);
-        Call<List<ResultToDo>> getdata = api.rToDo(idplan);
-        getdata.enqueue(new Callback<List<ResultToDo>>() {
+        Call<ResultToDo> getdata = api.rToDo(idplan);
+        getdata.enqueue(new Callback<ResultToDo>() {
             @Override
-            public void onResponse(Call<List<ResultToDo>> call, Response<List<ResultToDo>> response) {
+            public void onResponse(Call<ResultToDo> call, Response<ResultToDo> response) {
                 pd.hide();
                // Log.d("RETRO", "RESPONSE : " + response.body().getKode());
-                List<ResultToDo> s = response.body();
+                mItems = response.body().getResult2();
 
-                mAdapter = new MapLoungeThingToDoAdapter(ActivityMapLoungeThingToDo.this,s);
+                mAdapter = new MapLoungeThingToDoAdapter(ActivityMapLoungeThingToDo.this,mItems);
                 mRecycler.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
 
             }
 
             @Override
-            public void onFailure(Call<List<ResultToDo>> call, Throwable t) {
+            public void onFailure(Call<ResultToDo> call, Throwable t) {
                 pd.hide();
                 Log.d("RETRO", "FAILED : respon gagal");
 

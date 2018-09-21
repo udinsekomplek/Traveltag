@@ -1,75 +1,33 @@
 package traveltag.spesialisit.com.traveltag.model.mapLounge;
 
+
+import java.util.List;
 import com.google.gson.annotations.Expose;
-        import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
 
-public class ResultTravelPlan {
+    public class ResultTravelPlan {
 
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("ids")
-    @Expose
-    private String ids;
-    @SerializedName("bulan")
-    @Expose
-    private String bulan;
-    @SerializedName("negara")
-    @Expose
-    private String negara;
-    @SerializedName("tgl_berangkat")
-    @Expose
-    private String tglBerangkat;
-    @SerializedName("tgl_selesai")
-    @Expose
-    private String tglSelesai;
+        @SerializedName("kode")
+        @Expose
+        private Integer kode;
+        @SerializedName("result1")
+        @Expose
+        private List<Result1> result1 = null;
 
-    public String getId() {
-        return id;
+        public Integer getKode() {
+            return kode;
+        }
+
+        public void setKode(Integer kode) {
+            this.kode = kode;
+        }
+
+        public List<Result1> getResult1() {
+            return result1;
+        }
+
+        public void setResult1(List<Result1> result1) {
+            this.result1 = result1;
+        }
+
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIds() {
-        return ids;
-    }
-
-    public void setIds(String ids) {
-        this.ids = ids;
-    }
-
-    public String getBulan() {
-        return bulan;
-    }
-
-    public void setBulan(String bulan) {
-        this.bulan = bulan;
-    }
-
-    public String getNegara() {
-        return negara;
-    }
-
-    public void setNegara(String negara) {
-        this.negara = negara;
-    }
-
-    public String getTglBerangkat() {
-        return tglBerangkat;
-    }
-
-    public void setTglBerangkat(String tglBerangkat) {
-        this.tglBerangkat = tglBerangkat;
-    }
-
-    public String getTglSelesai() {
-        return tglSelesai;
-    }
-
-    public void setTglSelesai(String tglSelesai) {
-        this.tglSelesai = tglSelesai;
-    }
-
-}

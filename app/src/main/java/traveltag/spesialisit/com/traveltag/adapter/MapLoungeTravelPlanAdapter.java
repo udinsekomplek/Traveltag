@@ -17,17 +17,17 @@ import java.util.Date;
 import java.util.List;
 
 import traveltag.spesialisit.com.traveltag.R;
-import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelPlan;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Result1;
 import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeMonthList;
 
 
 public class MapLoungeTravelPlanAdapter extends RecyclerView.Adapter<MapLoungeTravelPlanAdapter.HolderData> {
     private String adapintent;
-    private List<ResultTravelPlan> mList ;
+    private List<Result1> mList ;
     private Context ctx;
 
 
-    public MapLoungeTravelPlanAdapter(Context ctx, List<ResultTravelPlan> mList, String intent)
+    public MapLoungeTravelPlanAdapter(Context ctx, List<Result1> mList, String intent)
     {
         this.ctx = ctx;
         this.mList = mList;
@@ -44,7 +44,7 @@ public class MapLoungeTravelPlanAdapter extends RecyclerView.Adapter<MapLoungeTr
     @Override
     public void onBindViewHolder(final HolderData holder, int position) {
         final RecyclerView.ViewHolder vh = null;
-        final ResultTravelPlan dm = mList.get(position);
+        final Result1 dm = mList.get(position);
         holder.txBulan.setText(dm.getBulan());
         holder.ngr.setText(dm.getNegara());
 
@@ -85,7 +85,7 @@ public class MapLoungeTravelPlanAdapter extends RecyclerView.Adapter<MapLoungeTr
 
     class HolderData extends  RecyclerView.ViewHolder{
         TextView txWaktu, txBulan, ngr,txHari;
-        ResultTravelPlan dm;
+        Result1 dm;
         public HolderData (View v)
         {
             super(v);
@@ -101,6 +101,7 @@ public class MapLoungeTravelPlanAdapter extends RecyclerView.Adapter<MapLoungeTr
                     Intent goInput = new Intent(ctx,ActivityMapLoungeMonthList.class);
                     goInput.putExtra("idplan", adapintent.toString());
                     goInput.putExtra("bulan", dm.getBulan());
+                    goInput.putExtra("negara", dm.getNegara());
                     ctx.startActivity(goInput);
                 }
             });

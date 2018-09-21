@@ -10,6 +10,7 @@ package traveltag.spesialisit.com.traveltag.api;
         import traveltag.spesialisit.com.traveltag.model.ImageResult;
         import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultToDo;
         import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelPlan;
+        import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelPlan3;
         import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelerMapLounge;
         import traveltag.spesialisit.com.traveltag.model.LocalTourResponse;
         import traveltag.spesialisit.com.traveltag.model.ResponsModelRegister;
@@ -19,6 +20,7 @@ package traveltag.spesialisit.com.traveltag.api;
         import retrofit2.http.FormUrlEncoded;
         import retrofit2.http.GET;
         import retrofit2.http.POST;
+        import traveltag.spesialisit.com.traveltag.model.mapLounge.Resulthobi2;
 
 
 public interface RequestRegister {
@@ -64,13 +66,17 @@ public interface RequestRegister {
 
     @FormUrlEncoded
     @POST("server.php?operasi=op1")
-    Call<List<ResultTravelPlan>> rTravelPlan(@Field("iduser") String iduser);
+    Call<ResultTravelPlan> rTravelPlan(@Field("iduser") String iduser);
 //cal to do
     @FormUrlEncoded
     @POST("server.php?operasi=op2")
-    Call<List<ResultToDo>> rToDo(@Field("idtplan") String idtplan);
+    Call<ResultToDo> rToDo(@Field("idtplan") String idtplan);
     //call nonth list
     @FormUrlEncoded
     @POST("server.php?operasi=op3")
-    Call<List<ResultTravelPlan>> rMonthList(@Field("idplan") String idplan, @Field("bulan") String bulan);
+    Call<ResultTravelPlan3> rMonthList(@Field("idplan") String idplan, @Field("bulan") String bulan);
+//hobi
+    @FormUrlEncoded
+    @POST("server.php?operasi=op4")
+    Call<Resulthobi2> rHobi(@Field("iduser") String iduser);
 }

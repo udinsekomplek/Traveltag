@@ -15,18 +15,17 @@ import java.util.Date;
 import java.util.List;
 
 import traveltag.spesialisit.com.traveltag.R;
-import traveltag.spesialisit.com.traveltag.model.mapLounge.ResultTravelPlan;
-import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeMonthList;
+import traveltag.spesialisit.com.traveltag.model.mapLounge.Result3;
 import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeThingToDo;
 
 
 public class MapLoungeMonthListAdapter extends RecyclerView.Adapter<MapLoungeMonthListAdapter.HolderData> {
 
-    private List<ResultTravelPlan> mList ;
+    private List<Result3> mList ;
     private Context ctx;
 
 
-    public MapLoungeMonthListAdapter(Context ctx, List<ResultTravelPlan> mList)
+    public MapLoungeMonthListAdapter(Context ctx, List<Result3> mList)
     {
         this.ctx = ctx;
         this.mList = mList;
@@ -43,7 +42,7 @@ public class MapLoungeMonthListAdapter extends RecyclerView.Adapter<MapLoungeMon
     @Override
     public void onBindViewHolder(final HolderData holder, int position) {
         final RecyclerView.ViewHolder vh = null;
-        final ResultTravelPlan dm = mList.get(position);
+        final Result3 dm = mList.get(position);
         holder.ngr.setText(dm.getNegara());
 
 
@@ -83,7 +82,7 @@ public class MapLoungeMonthListAdapter extends RecyclerView.Adapter<MapLoungeMon
 
     class HolderData extends  RecyclerView.ViewHolder{
         TextView txWaktu, ngr;
-        ResultTravelPlan dm;
+        Result3 dm;
         public HolderData (View v)
         {
             super(v);
@@ -96,6 +95,7 @@ public class MapLoungeMonthListAdapter extends RecyclerView.Adapter<MapLoungeMon
                 public void onClick(View v) {
                     Intent goInput = new Intent(ctx,ActivityMapLoungeThingToDo.class);
 
+                    goInput.putExtra("negara", dm.getBulan());
                     goInput.putExtra("idplan", dm.getId());
                     ctx.startActivity(goInput);
                 }

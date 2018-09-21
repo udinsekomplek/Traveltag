@@ -3,62 +3,31 @@ package traveltag.spesialisit.com.traveltag.model.mapLounge;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ResultToDo {
 
-    @SerializedName("ids")
+    @SerializedName("kode")
     @Expose
-    private String ids;
-    @SerializedName("idt")
+    private Integer kode;
+    @SerializedName("result2")
     @Expose
-    private String idt;
-    @SerializedName("judul")
-    @Expose
-    private String judul;
-    @SerializedName("kegiatan")
-    @Expose
-    private String kegiatan;
-    @SerializedName("id")
-    @Expose
-    private String id;
+    private List<Result2> result2 = null;
 
-    public String getIds() {
-        return ids;
+    public Integer getKode() {
+        return kode;
     }
 
-    public void setIds(String ids) {
-        this.ids = ids;
+    public void setKode(Integer kode) {
+        this.kode = kode;
     }
 
-    public String getIdt() {
-        return idt;
+    public List<Result2> getResult2() {
+        return result2;
     }
 
-    public void setIdt(String idt) {
-        this.idt = idt;
-    }
-
-    public String getJudul() {
-        return judul;
-    }
-
-    public void setJudul(String judul) {
-        this.judul = judul;
-    }
-
-    public String getKegiatan() {
-        return kegiatan;
-    }
-
-    public void setKegiatan(String kegiatan) {
-        this.kegiatan = kegiatan;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setResult2(List<Result2> result2) {
+        this.result2 = result2;
     }
 
 }

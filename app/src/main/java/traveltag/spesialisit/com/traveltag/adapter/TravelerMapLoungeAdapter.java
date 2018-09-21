@@ -53,7 +53,7 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
         final RecyclerView.ViewHolder vh = null;
         final Result dm = mList.get(position);
         holder.tuser.setText(dm.getUsername());
-        holder.bio.setText(dm.getBio());
+        holder.bio.setText(" "+dm.getBio());
         holder.ngr.setText(dm.getNational());
         StringBuilder sb = new StringBuilder();
         for (Resulthobi s : dm.getResulthobi())
