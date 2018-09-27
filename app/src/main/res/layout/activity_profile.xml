@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/container" >
 
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-     >
 
 
         <LinearLayout
@@ -35,7 +27,7 @@
                     app:civ_border_width="1dp"
                     app:civ_border_color="#FF000000"/>
             <TextView
-                android:id="@+id/txUsedr"
+                android:id="@+id/txUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -45,7 +37,7 @@
                 android:textColor="#fff"
                 android:typeface="sans"/>
             <TextView
-                android:id="@+id/txUseddr"
+                android:id="@+id/txJk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -79,232 +71,272 @@
                 android:textColor="#000"
                 android:typeface="normal"/>
         </LinearLayout>
-
-
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:id="@+id/xxc"
-            android:layout_below="@+id/xx"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txJob"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Intro"
-                android:textSize="20dp"
-                android:textColor="#000"
-                android:typeface="normal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:paddingTop="7dp"
-            android:id="@+id/xxa"
-            android:layout_below="@+id/xxc"
-            android:background="@mipmap/lin"
-            android:orientation="horizontal">
+                android:paddingTop="5dp"
+                android:id="@+id/xxc"
+                android:layout_below="@+id/xx"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:id="@+id/xxb"
-            android:layout_below="@+id/xxa"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Intro"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:typeface="normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:paddingTop="15dp"
+                android:id="@+id/xxa"
+                android:layout_below="@+id/xxc"
+                android:background="@mipmap/lin"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:id="@+id/xxb"
+                android:layout_below="@+id/xxa"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:text="Photos"
+                    android:textSize="20dp"
+                    android:textColor="#b4b2b2"
+                    android:typeface="normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp"
+                android:id="@+id/xxz"
                 android:paddingLeft="20dp"
-                android:textStyle="bold"
-                android:text="Photos"
-                android:textSize="20dp"
-                android:textColor="#b4b2b2"
-                android:typeface="normal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="3dp"
-            android:id="@+id/xxz"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/xxb"
-            android:orientation="horizontal">
+                android:layout_below="@+id/xxb"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:id="@+id/img1"
-                android:background="@mipmap/img1"
-                />
-            <ImageView
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:id="@+id/img2"
-                android:background="@mipmap/img2"
-                android:layout_toRightOf="@id/img1"
-                />
-            <ImageView
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:id="@+id/img3"
-                android:background="@mipmap/img3"
-                android:layout_toRightOf="@id/img2"
-                />
-            <ImageView
-                android:layout_width="85dp"
-                android:layout_height="90dp"
-                android:id="@+id/img4"
-                android:background="@mipmap/img1"
-                android:layout_toRightOf="@id/img3"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:id="@+id/xxs"
-            android:layout_below="@+id/xxz"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/imgjob"
-                android:background="@drawable/ic_work_black_24dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:layout_toRightOf="@id/imgjob"
-                android:text="EnterPrenuer - Aoutomotive"
-                android:paddingLeft="5dp"
-                android:textSize="15dp"
-                android:textColor="#6c6363"
-                android:typeface="normal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="5dp"
-            android:id="@+id/xxe"
-            android:layout_below="@+id/xxs"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/imgngr"
-                android:background="@mipmap/indo"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:layout_toRightOf="@id/imgngr"
-                android:text="Indonesia"
-                android:paddingLeft="5dp"
-                android:textSize="15dp"
-                android:textColor="#6c6363"
-                android:typeface="normal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="5dp"
-            android:id="@+id/xxi"
-            android:layout_below="@+id/xxe"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/imgig"
-                android:background="@mipmap/ig"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:layout_toRightOf="@id/imgig"
-                android:text="udin123"
-                android:paddingLeft="5dp"
-                android:textSize="15dp"
-                android:textColor="#6c6363"
-                android:typeface="normal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:id="@+id/xxpn"
-            android:layout_below="@+id/xxi"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/o"
-                android:orientation="vertical">
                 <ImageView
                     android:layout_width="85dp"
                     android:layout_height="90dp"
-                    android:id="@+id/imgtnp"
-                    android:layout_marginLeft="15dp"
-                    android:background="@mipmap/tp"
+                    android:id="@+id/img1"
+                    android:background="@mipmap/img1"
                     />
-
-                <TextView
-                    android:paddingTop="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/g"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:text="Travel Plan"
-                    android:textSize="20dp"
-                    android:textColor="#000"
-                    android:typeface="normal"
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/img2"
+                    android:background="@mipmap/img2"
+                    android:layout_toRightOf="@id/img1"
                     />
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/img3"
+                    android:background="@mipmap/img3"
+                    android:layout_toRightOf="@id/img2"
+                    />
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/img4"
+                    android:background="@mipmap/img1"
+                    android:layout_toRightOf="@id/img3"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:paddingTop="15dp"
+                android:id="@+id/xxav"
+                android:layout_below="@+id/xxz"
+                android:background="@mipmap/lin"
+                android:orientation="vertical">
 
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/oo"
-                android:layout_toRightOf="@id/oo"
-                android:layout_marginLeft="30dp"
-                android:orientation="vertical">
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:id="@+id/xxs"
+                android:layout_below="@+id/xxav"
+                android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="85dp"
-                    android:layout_height="90dp"
-                    android:id="@+id/imgtnpc"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/imgjob"
+                    android:background="@drawable/ic_work_black_24dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@id/txJob"
+                    android:text="EnterPrenuer - Aoutomotive"
+                    android:paddingLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#6c6363"
+                    android:typeface="normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:id="@+id/xxe"
+                android:layout_below="@+id/xxs"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/imgngr"
+                    android:background="@mipmap/indo"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@id/imgngr"
+                    android:text="Indonesia"
+                    android:paddingLeft="5dp"
+                    android:id="@+id/txNgr"
+                    android:textSize="15dp"
+                    android:textColor="#6c6363"
+                    android:typeface="normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:id="@+id/xxi"
+                android:layout_below="@+id/xxe"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/imgig"
+                    android:background="@mipmap/ig"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@id/imgig"
+                    android:text="udin123"
+                    android:id="@+id/txItg"
+                    android:paddingLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#6c6363"
+                    android:typeface="normal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:paddingTop="15dp"
+                android:id="@+id/xxam"
+                android:layout_below="@+id/xxi"
+                android:background="@mipmap/lin"
+                android:orientation="vertical">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:id="@+id/xxpn"
+                android:layout_below="@+id/xxam"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/o"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/imgtnp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/tp"
+                        />
+
+                    <TextView
+                        android:paddingTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/g"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:text="Travel Plan"
+                        android:textSize="20dp"
+                        android:textColor="#000"
+                        android:typeface="normal"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/oo"
+                    android:layout_toRightOf="@id/oo"
                     android:layout_marginLeft="30dp"
-                    android:background="@mipmap/tj"
-                    />
-                <TextView
-                    android:paddingTop="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/gd"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:text="Trips Jurnal"
-                    android:textSize="20dp"
-                    android:textColor="#000"
-                    android:typeface="normal"
-                    />
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="90dp"
+                        android:id="@+id/imgtnpc"
+                        android:layout_marginLeft="30dp"
+                        android:background="@mipmap/tj"
+                        />
+                    <TextView
+                        android:paddingTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gd"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="Trips Jurnal"
+                        android:textSize="20dp"
+                        android:textColor="#000"
+                        android:typeface="normal"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:id="@+id/xxab"
+                android:layout_below="@+id/xxpn"
+                android:orientation="vertical">
 
             </LinearLayout>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
 
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

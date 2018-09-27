@@ -8,7 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
-        import android.widget.TextView;
+import android.widget.Button;
+import android.widget.TextView;
 
 
         import com.squareup.picasso.Picasso;
@@ -25,6 +26,7 @@ import traveltag.spesialisit.com.traveltag.model.mapLounge.Resultplan;
 import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeListHobi;
 import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeListTravel;
 import traveltag.spesialisit.com.traveltag.viewmap.ActivityMapLoungeTravelPlan;
+import traveltag.spesialisit.com.traveltag.viewmap.ActivityProfileTraveler;
 
 import static android.content.ContentValues.TAG;
 
@@ -113,6 +115,18 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
                 ctx.startActivity(i);
             }
         });
+        holder.btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ctx.getApplicationContext(), ActivityProfileTraveler.class);
+                i.putExtra("iuser", dm.getUsername().toString());
+                i.putExtra("igender", dm.getGender().toString());
+                i.putExtra("ibio", dm.getBio().toString());
+                i.putExtra("ingr", dm.getNational().toString());
+                i.putExtra("iimg", dm.getImg().toString());
+                ctx.startActivity(i);
+            }
+        });
         holder.dm = dm;
     }
 
@@ -125,11 +139,12 @@ public class TravelerMapLoungeAdapter extends RecyclerView.Adapter<TravelerMapLo
     class HolderData extends  RecyclerView.ViewHolder{
         TextView tuser, bio, ngr,txHobi,txTravelSumary,txTravelSumaryDetail,txHobiDetail;
         Result dm;
+        Button btnProfile;
         public  de.hdodenhof.circleimageview.CircleImageView imageView;
         public HolderData (View v)
         {
             super(v);
-
+            btnProfile  = (Button) v.findViewById(R.id.btnProfile);
             bio  = (TextView) v.findViewById(R.id.txBio);
             ngr = (TextView) v.findViewById(R.id.txNegara);
             txHobi = (TextView) v.findViewById(R.id.txHobi);
